@@ -1,0 +1,65 @@
+<!doctype html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="static/css/main.css">
+<title>Upload new File</title>
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+    <div class="w3-display-topright w3-padding-large w3-image">
+        <a href="https://www.momagic.com/" target="_blank">Momagic</a>
+    </div>
+    <div class="w3-display-middle">
+        <h4>
+            <form action="" method="post" enctype="multipart/form-data">
+                <button class="w3-black" style="width:100%">
+                    <input type=file name=file1 style="width:80%">產品A
+                </button>
+                <button class="w3-black" style="width:100%">
+                    <!-- <input type="file" multiple="" name="file[]">上傳2個檔案 -->
+                    <input type=file name=file2 style="width:80%">產品B
+                </button>
+                <br>
+                [(產品A
+                <select id="operator1" name="operator1">
+                    <option selected value="*">*</option>
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="/">/</option>
+                </select>
+                <input type="text" id="ratio1" name="ratio1" value="50" style="width:10%">)
+                <select id="operator2" name="operator2">
+                    <option selected value="-">-</option>
+                    <option value="+">+</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+                (產品B
+                <select id="operator3" name="operator3">
+                    <option selected value="*">*</option>
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="/">/</option>
+                </select>
+                <input type="text" id="ratio2" name="ratio2" value="2000" style="width:10%">)]
+                <select id="operator4" name="operator4">
+                    <option selected value="/">/</option>
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                </select>
+                <input type="text" id="ratio3" name="ratio3" value="100" style="width:10%">)
+                <select id="operator5" name="operator5">
+                    <option selected value="+">+</option>
+                    <option value="/">/</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                </select>
+                <input type="text" id="intercept" name="intercept" value="10000" style="width:10%">)
+
+                <button class="w3-button w3-dark-grey" type="submit" style="width:100%">
+                    <i class="fa fa-paper-plane"></i> Upload
+                </button>
+            </form>
+        </h4>
+
+    </div>
+</div>
