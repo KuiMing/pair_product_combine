@@ -1,0 +1,15 @@
+
+/*
+* Formatting the header area
+*/
+body,h1,h2,h3,h4,h5,h6 {font-family: "Playfair Display";}
+.w3-bar-block .w3-bar-item {padding:20px}
+body, html {height: 100%}
+
+body, html {height: 100%}
+.bgimg {
+background-image: url('https://s.newtalk.tw/album/news/317/5db2cc9f84225.jpg');
+min-height: 100%;
+background-position: center;
+background-size: cover;
+}
