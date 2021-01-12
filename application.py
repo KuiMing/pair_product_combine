@@ -20,7 +20,8 @@ ALLOWED_EXTENSIONS = set(["csv", "txt", "asc"])
 
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
-
+app.config['HISTORY'] = "{}/shioaji_history".format(os.getenv("HOME"))
+app.config["FILES"] = glob.glob('{}/*.csv'.format(app.config['HISTORY']))
 
 @app.route("/favicon.ico")
 def favicon():
@@ -55,6 +56,24 @@ def upload_file():
 
     return render_template("upload_file.html")
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    gc.collect()
+    if request.method == "POST":
+        code = request.form["code"]
+        try:
+            file_path = next(
+                i
+                for i in app.config["FILES"]
+                if i == '{0}/{1}.csv'.format(app.config['HISTORY'], code)
+            )
+            print(file_path)
+        except StopIteration:
+            print('nothing')
+            return "nothing"
+        return redirect(url_for("history", code=code))
+
+    return render_template("search.html")
 
 @app.route("/report")
 def report():
@@ -91,6 +110,9 @@ def download():
     print("as_attachment=True")
     return redirect(url_for("download_file", filename="new_product.csv"))
 
+@app.route("/history/<code>")
+def history(code):
+    return send_from_directory(app.config['HISTORY'], code + ".csv")
 
 if __name__ == "__main__":
     app.run(debug=True)
